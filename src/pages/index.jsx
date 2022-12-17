@@ -7,9 +7,11 @@ import { useCallback, useEffect, useState } from 'react'
 
 export default function Home() {
 
+  // State初期値
   const [count, setCount] = useState(0);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick = useCallback(() => {
     if (count < 10){
@@ -28,6 +30,19 @@ export default function Home() {
     }
     setText(e.target.value);
   },[]);
+
+  const handleAddArray = useCallback(()=>{
+    setArray(prevArray => {
+      if (prevArray.some(item => item === text)){
+        alert("既に同じ要素が存在します。");
+        return prevArray;
+      }
+      // @see - https://jsprimer.net/basic/array/#mutable-immutable
+      // 破壊的メソッドを使わないようにスプレッド構文を利用する
+      const newArray = [...prevArray, text];
+      return newArray;
+    })
+  },[text])
 
   useEffect(() => {
     document.body.style.backgroundColor = 'lightblue';
@@ -48,6 +63,12 @@ return (
     <button onClick={handleClick}>ボタン</button>
     <button onClick={handleDisplay}>{isShow ? "カウント非表示" : "カウント表示"}</button>
     <input type='text' value={text} onChange={handleChange}/>
+    <button onClick={handleAddArray}>追加</button>
+    <ul>
+      {array.map(item =>{
+        return <li key={Math.random()}>{item}</li>;
+      })}
+    </ul>
     <Main page="index"/>
     <Footer />
   </div>
