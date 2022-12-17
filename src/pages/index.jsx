@@ -13,12 +13,12 @@ export default function Home() {
 
   const handleClick = useCallback(() => {
     if (count < 10){
-      setCount(pre => pre + 1);
+      setCount(prevCount => prevCount + 1);
     }
   },[count]);
 
   const handleDisplay = useCallback(()=>{
-    setIsShow(isShow => !isShow);
+    setIsShow(prevIsShow => !prevIsShow);
   },[])
 
   const handleChange = useCallback((e)=>{
