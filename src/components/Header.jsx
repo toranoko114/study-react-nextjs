@@ -1,6 +1,6 @@
 // NextJSの機能 prefetch機能があり
 import Link from 'next/link'
-import styles from '../styles/Header.module.css'
+import styles from 'src/styles/Header.module.css'
 
 export function Header() {
   return (
