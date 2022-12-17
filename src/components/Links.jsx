@@ -1,7 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from 'src/styles/Links.module.css'
-import {Footer} from 'src/components/Footer'
 
 const ITEMS = [
   {
