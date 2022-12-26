@@ -5,7 +5,7 @@ import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
 
 export default function About({
-  count,
+  doubleCount,
   isShow,
   handleClick,
   handleDisplay,
@@ -22,7 +22,7 @@ export default function About({
       </Head>
       <Header />
 
-    {isShow ? <h1>{count}</h1> : null}
+    {isShow ? <h1>{doubleCount}</h1> : null}
     <button onClick={handleClick}>ボタン</button>
     <button onClick={handleDisplay}>{isShow ? "カウント非表示" : "カウント表示"}</button>
 
