@@ -1,6 +1,6 @@
-import styles from 'src/styles/Headline.module.css'
+import styles from "src/styles/Headline.module.css";
 
-export function Headline(props) {
+export const Headline = (props) => {
   return (
     <div>
       <h1 className={styles.title}>{props.page} Page</h1>
@@ -11,5 +11,5 @@ export function Headline(props) {
 
       <button onClick={props.handleReduce}>アイテムを減らす</button>
     </div>
-  )
-}
+  );
+};

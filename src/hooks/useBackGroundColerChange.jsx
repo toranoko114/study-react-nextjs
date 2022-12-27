@@ -1,12 +1,11 @@
-import { useRouter } from 'next/router';
-import { useEffect, useMemo} from 'react'
+import { useRouter } from "next/router";
+import { useEffect, useMemo } from "react";
 
 export const useBackGroundColerChange = () => {
-
   const router = useRouter();
 
-  const backGroundColer = useMemo(()=>{
-    switch(router.pathname){
+  const backGroundColer = useMemo(() => {
+    switch (router.pathname) {
       case "/": {
         return "lightblue";
       }
@@ -14,16 +13,15 @@ export const useBackGroundColerChange = () => {
         return "beige";
       }
       default: {
-        return ""
+        return "";
       }
     }
-  }, [router.pathname])
+  }, [router.pathname]);
 
-    useEffect(() => {
-      document.body.style.backgroundColor = backGroundColer;
-      return () => {
-        document.body.style.backgroundColor = '';
-      };
-    },[backGroundColer]);
-
-  }
+  useEffect(() => {
+    document.body.style.backgroundColor = backGroundColer;
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, [backGroundColer]);
+};
